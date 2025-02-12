@@ -9,8 +9,10 @@
 // Function checks if local storage already has data, if not it loads initialData to localStorage
 function initializeData() {
   if (!localStorage.getItem('tasks')) {
-    localStorage.setItem('tasks', JSON.stringify(initialData)); 
-    localStorage.setItem('showSideBar', 'true')
+    localStorage.setItem('tasks', JSON.stringify(initialData));
+    localStorage.setItem('light-theme', 'enabled');
+  } else if (!localStorage.getItem('activeBoard')) {
+    localStorage.setItem('activeBoard', JSON.stringify(initialData[0].board));
   } else {
     console.log('Data already exists in localStorage');
   }
@@ -78,20 +80,20 @@ function filterAndDisplayTasksByBoard(boardName) {
     const tasksContainer = document.createElement("div");
     column.appendChild(tasksContainer);
 
-    filteredTasks.filter(task => task.status = status).forEach(task => { 
+    filteredTasks.filter(task => task.status = status).forEach(task => {
       const taskElement = document.createElement("div");
       taskElement.classList.add("task-div");
       taskElement.textContent = task.title;
       taskElement.setAttribute('data-task-id', task.id);
 
       // Listen for a click event on each task and open a modal
-      taskElement.click() => { 
+      taskElement.click() => {
         openEditTaskModal(task);
       });
 
-      tasksContainer.appendChild(taskElement);
-    });
+    tasksContainer.appendChild(taskElement);
   });
+});
 }
 
 
