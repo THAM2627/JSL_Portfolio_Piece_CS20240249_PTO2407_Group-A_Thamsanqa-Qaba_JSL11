@@ -22,7 +22,7 @@ function initializeData() {
 // TASK: Get elements from the DOM
 const elements = {
   logo: document.getElementById('logo'),
-  btns: document.querySelectorAll('.board-btn'),
+  boardBtns: document.querySelectorAll('.board-btn'),
   dot: document.querySelectorAll('.dot'),
   headerBoardName: document.getElementById('header-board-name'),
   columnDivs: document.querySelectorAll('.column-div'),
@@ -39,6 +39,25 @@ const elements = {
   createNewTaskBtn: document.getElementById('create-new-task-btn'),
   cancelAddTaskBtn: document.getElementById('cancel-add-task-btn'),
   cancelEditBtn: document.getElementById('cancel-edit-btn'),
+  saveTaskChangesBtn: document.getElementById('save-task-changes-btn'),
+  editTaskBtn: document.getElementById('edit-task-btn'),
+  deleteTaskBtn: document.getElementById('delete-task-btn'),
+  editTaskTitleInput: document.getElementById('edit-task-title-input'),
+  editTaskDescInput: document.getElementById('edit-task-desc-input'),
+  editSelectStatus: document.getElementById('edit-select-status'),
+  editTaskForm: document.getElementById('edit-task-form'),
+  editTaskHeader: document.getElementById('edit-task-header'),
+  editBoardDiv: document.getElementById('editBoardDiv'),
+  deleteBoardBtn: document.getElementById('deleteBoardBtn'),
+  editBtnsDiv: document.getElementById('editBtnsDiv'),
+  editBtns: document.querySelectorAll('.editBtns'),
+  submitBtn: document.querySelectorAll('.submit-btn'),
+  taskTitleInput: document.getElementById('task-title-input'),
+  taskDescInput: document.getElementById('task-desc-input'),
+  taskForm: document.getElementById('task-form'),
+  selectStatus: document.getElementById('select-status'),
+  taskHeader: document.getElementById('task-header'),
+  taskDiv: document.getElementById('task-div'),
 
 }
 
