@@ -94,23 +94,24 @@ function displayBoards(boards) {
     const boardElement = document.createElement("button");
     boardElement.textContent = board;
     boardElement.classList.add("board-btn");
-    boardElement.click()  {
-      elements.headerBoardName.textContent = board;
-      filterAndDisplayTasksByBoard(board);
-      activeBoard = board //assigns active board
-      localStorage.setItem("activeBoard", JSON.stringify(activeBoard))
-      styleActiveBoard(activeBoard)
-    };
-    boardsContainer.appendChild(boardElement);
-  });
+    boardElement.addEventListener('click', () => {
+      boardElement.classList.addEventListener('click', () => {
+        elements.headerBoardName.textContent = board;
+        filterAndDisplayTasksByBoard(board);
+        activeBoard = board //assigns active board
+        localStorage.setItem("activeBoard", JSON.stringify(activeBoard))
+        styleActiveBoard(activeBoard)
+      });
+      boardsContainer.appendChild(boardElement);
+    });
 
 }
 
 // Filters tasks corresponding to the board name and displays them on the DOM.
 // TASK: Fix Bugs
 function filterAndDisplayTasksByBoard(boardName) {
-  const tasks = getTasks(); // Fetch tasks from a simulated local storage function
-  const filteredTasks = tasks.filter(task => task.board === boardName);
+      const tasks = getTasks(); // Fetch tasks from a simulated local storage function
+      const filteredTasks = tasks.filter(task => task.board === boardName);
 
   // Ensure the column titles are set outside of this function or correctly initialized before this function runs
 
@@ -119,7 +120,7 @@ function filterAndDisplayTasksByBoard(boardName) {
     // Reset column content while preserving the column title
     column.innerHTML = `<div class="column-head-div">
                           <span class="dot" id="${status}-dot"></span>
-                          <h4 class="columnHeader">${status.toUpperCase()}</h4>
+                          <h4 class="columnHeader">${status.charAt(0).toUpperCase() + status.slice(1)}</h4>
                         </div>`;
 
     const tasksContainer = document.createElement("div");
