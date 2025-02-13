@@ -12,11 +12,11 @@ function initializeData() {
   if (!localStorage.getItem('tasks')) {
     localStorage.setItem('tasks', JSON.stringify(initialData));
     localStorage.setItem('light-theme', 'enabled');
-  } else if (!localStorage.getItem('activeBoard')) {
-    localStorage.setItem('activeBoard', JSON.stringify(initialData[0].board));
-  } else {
-    console.log('Data already exists in localStorage');
   }
+  if (!localStorage.getItem('activeBoard')) {
+    localStorage.setItem('activeBoard', JSON.stringify(initialData[0].board));
+  }
+  console.log('Data initialization complete.');
 }
 
 // TASK: Get elements from the DOM
