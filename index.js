@@ -41,7 +41,6 @@ const elements = {
   cancelEditBtn: document.getElementById('cancel-edit-btn'),
   saveTaskChangesBtn: document.getElementById('save-task-changes-btn'),
   editTaskBtn: document.getElementById('edit-task-btn'),
-  deleteTaskBtn: document.getElementById('delete-task-btn'),
   editTaskTitleInput: document.getElementById('edit-task-title-input'),
   editTaskDescInput: document.getElementById('edit-task-desc-input'),
   editSelectStatus: document.getElementById('edit-select-status'),
@@ -58,6 +57,14 @@ const elements = {
   selectStatus: document.getElementById('select-status'),
   taskHeader: document.getElementById('task-header'),
   taskDiv: document.getElementById('task-div'),
+  taskTitle: document.getElementById('task-title'),
+  taskDesc: document.getElementById('task-desc'),
+  taskStatus: document.getElementById('task-status'),
+  taskBoard: document.getElementById('task-board'),
+  tasksContainer: document.getElementById('tasks-container'),
+  columnHeadDiv: document.querySelectorAll('.column-head-div'),
+  columnHeader: document.querySelectorAll('.columnHeader'),
+
 
 }
 
