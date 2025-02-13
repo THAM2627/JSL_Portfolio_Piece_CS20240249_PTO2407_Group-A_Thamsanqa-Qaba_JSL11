@@ -23,7 +23,22 @@ function initializeData() {
 const elements = {
   logo: document.getElementById('logo'),
   btns: document.querySelectorAll('.board-btn'),
-
+  dot: document.querySelectorAll('.dot'),
+  headerBoardName: document.getElementById('header-board-name'),
+  columnDivs: document.querySelectorAll('.column-div'),
+  taskDivs: document.querySelectorAll('.task-div'),
+  addNewTaskBtn: document.getElementById('add-new-task-btn'),
+  deleteTaskBtn: document.getElementById('delete-task-btn'),
+  editTaskModal: document.getElementById('edit-task-modal'),
+  modalWindow: document.getElementById('modal-window'),
+  filterDiv: document.getElementById('filter-div'),
+  hideSideBarBtn: document.getElementById('hide-sidebar-btn'),
+  showSideBarBtn: document.getElementById('show-sidebar-btn'),
+  themeSwitch: document.getElementById('switch'),
+  editBoardBtn: document.getElementById('edit-board-btn'),
+  createNewTaskBtn: document.getElementById('create-new-task-btn'),
+  cancelAddTaskBtn: document.getElementById('cancel-add-task-btn'),
+  cancelEditBtn: document.getElementById('cancel-edit-btn'),
 
 }
 
