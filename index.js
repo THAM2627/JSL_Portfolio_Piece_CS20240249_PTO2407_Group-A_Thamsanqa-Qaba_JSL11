@@ -137,60 +137,60 @@ function filterAndDisplayTasksByBoard(boardName) {
         openEditTaskModal(task);
       });
 
-      tasksContainer.appendChild(taskElement);
-    });
-  });
-}
+          tasksContainer.appendChild(taskElement);
+        });
+      });
+    }
 
 
 function refreshTasksUI() {
-  filterAndDisplayTasksByBoard(activeBoard);
-}
+      filterAndDisplayTasksByBoard(activeBoard);
+    }
 
 // Styles the active board by adding an active class
 // TASK: Fix Bugs
 function styleActiveBoard(boardName) {
-  document.querySelectorAll('.board-btn').foreach(btn => {
+      document.querySelectorAll('.board-btn').foreach(btn => {
 
-    if (btn.textContent === boardName) {
-      btn.add('active')
+        if (btn.textContent === boardName) {
+          btn.add('active')
+        }
+        else {
+          btn.remove('active');
+        }
+      });
     }
-    else {
-      btn.remove('active');
-    }
-  });
-}
 
 
 function addTaskToUI(task) {
-  const column = document.querySelector('.column-div[data-status="${task.status}"]');
-  if (!column) {
-    console.error(`Column not found for status: ${task.status}`);
-    return;
-  }
+      const column = document.querySelector('.column-div[data-status="${task.status}"]');
+      if (!column) {
+        console.error(`Column not found for status: ${task.status}`);
+        return;
+      }
 
-  let tasksContainer = column.querySelector('.tasks-container');
-  if (!tasksContainer) {
-    console.warn(`Tasks container not found for status: ${task.status}, creating one.`);
-    tasksContainer = document.createElement('div');
-    tasksContainer.className = 'tasks-container';
-    column.appendChild(tasksContainer);
-  }
+      let tasksContainer = column.querySelector('.tasks-container');
+      if (!tasksContainer) {
+        console.warn(`Tasks container not found for status: ${task.status}, creating one.`);
+        tasksContainer = document.createElement('div');
+        tasksContainer.className = 'tasks-container';
+        column.appendChild(tasksContainer);
+      }
 
-  const taskElement = document.createElement('div');
-  taskElement.className = 'task-div';
-  taskElement.textContent = task.title; // Modify as needed
-  taskElement.setAttribute('data-task-id', task.id);
+      const taskElement = document.createElement('div');
+      taskElement.className = 'task-div';
+      taskElement.textContent = task.title; // Modify as needed
+      taskElement.setAttribute('data-task-id', task.id);
 
-  tasksContainer.appendChild();
-}
+      tasksContainer.appendChild();
+    }
 
 
 
 function setupEventListeners() {
-  // Cancel editing task event listener
-  const cancelEditBtn = document.getElementById('cancel-edit-btn');
-  cancelEditBtn.click() => toggleModal(false, elements.editTaskModal));
+      // Cancel editing task event listener
+      const cancelEditBtn = document.getElementById('cancel-edit-btn');
+      cancelEditBtn.click() => toggleModal(false, elements.editTaskModal));
 
   // Cancel adding new task event listener
   const cancelAddTaskBtn = document.getElementById('cancel-add-task-btn');
@@ -289,18 +289,26 @@ function saveTaskChanges(taskId) {
   title: document.getElementById('edit-task-title-input').value,
     description; document.getElementById('edit-task-desc-input').value,
       status; document.getElementById('edit-select-status').value,
-        // 3 Const, name them title, description and status, getElementbyId from DOM. 
+  const status = document.getElementById('edit-select-status').value,
+}
 
   // Create an object with the updated task details
 
 
   // Update task using a hlper functoin
   // PATCHTASK is the helper function, takes two values, 1.TaskID 2.updatedTask
+body: JSON.stringify(updatedTask)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+}
+// PATCHTASK is the helper function, takes two values, 1.TaskID 2.updatedTask
 
-  // Close the modal and refresh the UI to reflect the changes
-  //call two functions: togglemodal, refreshTasksUI
 
-  refreshTasksUI();
+// Close the modal and refresh the UI to reflect the changes
+//call two functions: togglemodal, refreshTasksUI
+
+refreshTasksUI();
 }
 
 /*************************************************************************************************************************************************/
