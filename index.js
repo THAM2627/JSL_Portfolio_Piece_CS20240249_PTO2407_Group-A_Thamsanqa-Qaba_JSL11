@@ -286,9 +286,8 @@ function openEditTaskModal(task) {
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
-  title: document.getElementById('edit-task-title-input').value,
-    description; document.getElementById('edit-task-desc-input').value,
-      status; document.getElementById('edit-select-status').value,
+  const title = document.getElementById('edit-task-title-input').value,
+  const description = document.getElementById('edit-task-desc-input').value,
   const status = document.getElementById('edit-select-status').value,
 }
 
