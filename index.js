@@ -105,7 +105,7 @@ function displayBoards(boards) {
       boardsContainer.appendChild(boardElement);
     });
 
-}
+  }
 
 // Filters tasks corresponding to the board name and displays them on the DOM.
 // TASK: Fix Bugs
@@ -113,29 +113,29 @@ function filterAndDisplayTasksByBoard(boardName) {
       const tasks = getTasks(); // Fetch tasks from a simulated local storage function
       const filteredTasks = tasks.filter(task => task.board === boardName);
 
-  // Ensure the column titles are set outside of this function or correctly initialized before this function runs
+      // Ensure the column titles are set outside of this function or correctly initialized before this function runs
 
-  elements.columnDivs.forEach(column => {
-    const status = column.getAttribute("data-status");
-    // Reset column content while preserving the column title
-    column.innerHTML = `<div class="column-head-div">
+      elements.columnDivs.forEach(column => {
+        const status = column.getAttribute("data-status");
+        // Reset column content while preserving the column title
+        column.innerHTML = `<div class="column-head-div">
                           <span class="dot" id="${status}-dot"></span>
                           <h4 class="columnHeader">${status.charAt(0).toUpperCase() + status.slice(1)}</h4>
                         </div>`;
 
-    const tasksContainer = document.createElement("div");
-    column.appendChild(tasksContainer);
+        const tasksContainer = document.createElement("div");
+        column.appendChild(tasksContainer);
 
-    filteredTasks.filter(task => task.status = status).forEach(task => {
-      const taskElement = document.createElement("div");
-      taskElement.classList.add("task-div");
-      taskElement.textContent = task.title;
-      taskElement.setAttribute('data-task-id', task.id);
+        filteredTasks.filter(task => task.status = status).forEach(task => {
+          const taskElement = document.createElement("div");
+          taskElement.classList.add("task-div");
+          taskElement.textContent = task.title;
+          taskElement.setAttribute('data-task-id', task.id);
 
-      // Listen for a click event on each task and open a modal
-      taskElement.addEventListener('click', () => {
-        openEditTaskModal(task);
-      });
+          // Listen for a click event on each task and open a modal
+          taskElement.addEventListener('click', () => {
+            openEditTaskModal(task);
+          });
 
           tasksContainer.appendChild(taskElement);
         });
@@ -290,22 +290,11 @@ function saveTaskChanges(taskId) {
   const description = document.getElementById('edit-task-desc-input').value,
   const status = document.getElementById('edit-select-status').value,
 }
-
-  // Create an object with the updated task details
+// Create an object with the updated task details
 
 
 // Update task using a hlper functoin
-function patchTask(taskId, updatedTask) {
-  fetch('/tasks/${taskId}', {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json')
-}
-body: JSON.stringify(updatedTask)
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error(error));
-}
+
 // PATCHTASK is the helper function, takes two values, 1.TaskID 2.updatedTask
 
 
