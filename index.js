@@ -295,8 +295,13 @@ function saveTaskChanges(taskId) {
   // Create an object with the updated task details
 
 
-  // Update task using a hlper functoin
-  // PATCHTASK is the helper function, takes two values, 1.TaskID 2.updatedTask
+// Update task using a hlper functoin
+function patchTask(taskId, updatedTask) {
+  fetch('/tasks/${taskId}', {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json')
+}
 body: JSON.stringify(updatedTask)
   .then(response => response.json())
   .then(data => console.log(data))
