@@ -289,20 +289,26 @@ function saveTaskChanges(taskId) {
   const title = document.getElementById('edit-task-title-input').value,
   const description = document.getElementById('edit-task-desc-input').value,
   const status = document.getElementById('edit-select-status').value,
+
+  // Create an object with the updated task details
+  const updatedTask = {
+    title,
+    description,
+    status,
+  };
+
+  // Update task using a hlper functoin
+  patchTask(taskId, updatedTask);
+
+  // PATCHTASK is the helper function, takes two values, 1.TaskID 2.updatedTask
+
+
+  // Close the modal and refresh the UI to reflect the changes
+  toggleModal()
+  //call two functions: togglemodal, refreshTasksUI
+  refreshTasksUI();
 }
-// Create an object with the updated task details
 
-
-// Update task using a hlper functoin
-
-// PATCHTASK is the helper function, takes two values, 1.TaskID 2.updatedTask
-
-
-// Close the modal and refresh the UI to reflect the changes
-//call two functions: togglemodal, refreshTasksUI
-
-refreshTasksUI();
-}
 
 /*************************************************************************************************************************************************/
 
