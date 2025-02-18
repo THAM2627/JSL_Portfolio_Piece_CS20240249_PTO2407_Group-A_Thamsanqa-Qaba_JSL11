@@ -312,9 +312,9 @@ function openEditTaskModal(task) {
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
-  const title = document.getElementById('edit-task-title-input').value,
-  const description = document.getElementById('edit-task-desc-input').value,
-  const status = document.getElementById('edit-select-status').value,
+  const title = document.getElementById('edit-task-title-input').value;
+  const description = document.getElementById('edit-task-desc-input').value;
+  const status = document.getElementById('edit-select-status').value;
 
   // Create an object with the updated task details
   const updatedTask = {
