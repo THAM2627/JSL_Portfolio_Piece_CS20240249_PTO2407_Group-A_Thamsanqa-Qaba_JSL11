@@ -199,9 +199,10 @@ function displayBoards(boards) {
   // Cancel adding new task event listener
   const cancelAddTaskBtn = document.getElementById('cancel-add-task-btn');
   cancelAddTaskBtn.addEventListener('click', () => {
-    toggleModal(false);
+    toggleModal(false, elements.modalWindow);
     elements.filterDiv.style.display = 'none'; // Also hide the filter overlay
   });
+  // Also hide the filter overlay
 
   // Clicking outside the modal to close it
   elements.filterDiv.addEventListener('click', () => {
