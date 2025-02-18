@@ -140,16 +140,16 @@ function displayBoards(boards) {
           tasksContainer.appendChild(taskElement);
         });
       });
-    }
+    },
 
 
-function refreshTasksUI() {
+    function refreshTasksUI() {
       filterAndDisplayTasksByBoard(activeBoard);
-    }
+    },
 
-// Styles the active board by adding an active class
-// TASK: Fix Bugs
-function styleActiveBoard(boardName) {
+    // Styles the active board by adding an active class
+    // TASK: Fix Bugs
+    function styleActiveBoard(boardName) {
       document.querySelectorAll('.board-btn').foreach(btn => {
 
         if (btn.textContent === boardName) {
@@ -159,10 +159,10 @@ function styleActiveBoard(boardName) {
           btn.remove('active');
         }
       });
-    }
+    },
 
 
-function addTaskToUI(task) {
+    function addTaskToUI(task) {
       const column = document.querySelector('.column-div[data-status="${task.status}"]');
       if (!column) {
         console.error(`Column not found for status: ${task.status}`);
@@ -183,11 +183,11 @@ function addTaskToUI(task) {
       taskElement.setAttribute('data-task-id', task.id);
 
       tasksContainer.appendChild();
-    }
+    },
 
 
 
-function setupEventListeners() {
+    function setupEventListeners() {
       // Cancel editing task event listener
       const cancelEditBtn = document.getElementById('cancel-edit-btn');
       cancelEditBtn.click() => toggleModal(false, elements.editTaskModal));
