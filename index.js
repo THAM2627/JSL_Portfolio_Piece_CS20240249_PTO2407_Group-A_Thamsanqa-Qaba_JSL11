@@ -110,6 +110,9 @@ function displayBoards(boards) {
     // Filters tasks corresponding to the board name and displays them on the DOM.
     // TASK: Fix Bugs
     function filterAndDisplayTasksByBoard(boardName) {
+      const elements = {
+        columnDivs: document.querySelectorAll('.column-div'),
+      },
       const tasks = getTasks(); // Fetch tasks from a simulated local storage function
       const filteredTasks = tasks.filter(task => task.board === boardName);
 
@@ -190,7 +193,8 @@ function displayBoards(boards) {
     function setupEventListeners() {
       // Cancel editing task event listener
       const cancelEditBtn = document.getElementById('cancel-edit-btn');
-      cancelEditBtn.click() => toggleModal(false, elements.editTaskModal));
+      cancelEditBtn.addEventListener('click', () => toggleModal(false, elements.editTaskModal));
+    },
 
   // Cancel adding new task event listener
   const cancelAddTaskBtn = document.getElementById('cancel-add-task-btn');
@@ -206,8 +210,8 @@ function displayBoards(boards) {
   });
 
   // Show sidebar event listener
-  elements.hideSideBarBtn.click() => toggleSidebar(false));
-  elements.showSideBarBtn.click() => toggleSidebar(true));
+  elements.hideSideBarBtn.addEventListener('click', () => toggleSidebar(false));
+  elements.showSideBarBtn.addEventListener('click', () => toggleSidebar(true));
 
   // Theme switch event listener
   elements.themeSwitch.addEventListener('change', toggleTheme);
