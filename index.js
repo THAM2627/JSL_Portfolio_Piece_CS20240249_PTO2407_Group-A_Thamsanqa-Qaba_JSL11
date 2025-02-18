@@ -257,6 +257,14 @@ function addTask(event) {
 
 function toggleSidebar(show) {
   //const sidebar/sidemenu, pull from DOM, queryselector, pull exisiting sidebar.
+  const sidebar = document.querySelector('.side-bar');
+  if (show) {
+    sidebar.classList.add('show-sidebar');
+    localStorage.setItem('showSideBar', 'show');
+  } else {
+    sidebar.classList.remove('show-sidebar');
+    localStorage.setItem('showSideBar', 'hide');
+  }
   //toggle between show and hide, use localstorage
   //if statments for show and hide
 }
