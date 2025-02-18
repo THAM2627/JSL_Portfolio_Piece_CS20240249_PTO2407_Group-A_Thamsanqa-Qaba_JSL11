@@ -149,7 +149,6 @@ function displayBoards(boards) {
 
     // Styles the active board by adding an active class
     // TASK: Fix Bugs
-    styleActiveBoard('My Board'),
     function styleActiveBoard(boardName) {
       document.querySelectorAll('.board-btn').forEach(btn => {
 
@@ -344,3 +343,5 @@ function init() {
   document.body.classList.toggle('light-theme', isLightTheme);
   fetchAndDisplayBoardsAndTasks(); // Initial display of boards and tasks
 }
+
+styleActiveBoard('My Board');
