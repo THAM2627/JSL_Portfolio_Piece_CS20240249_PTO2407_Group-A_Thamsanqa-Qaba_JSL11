@@ -231,7 +231,7 @@ function displayBoards(boards) {
 // Toggles tasks modal
 // Task: Fix bugs
 function toggleModal(show, modal = elements.modalWindow) {
-  modal.style.display = show ? 'block' => 'none';
+  modal.style.display = show ? 'block' : 'none';
 }
 
 /*************************************************************************************************************************************************
