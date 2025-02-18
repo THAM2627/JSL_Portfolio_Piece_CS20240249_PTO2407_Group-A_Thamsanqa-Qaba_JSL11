@@ -13,8 +13,10 @@ function initializeData() {
     localStorage.setItem('tasks', JSON.stringify(initialData));
     localStorage.setItem('light-theme', 'enabled');
   }
-  if (!localStorage.getItem('activeBoard')) {
+  if (!localStorage.getItem('activeBoard') && initialData && initialData.length > 0 && initialData[0].board) {
     localStorage.setItem('activeBoard', JSON.stringify(initialData[0].board));
+  } else if (!localStorage.getItem('activeBoard')) {
+    localStorage.setItem('activeBoard', JSON.stringify({ /* default board data */ }));
   }
   console.log('Data initialization complete.');
 }
@@ -194,7 +196,7 @@ function displayBoards(boards) {
       // Cancel editing task event listener
       const cancelEditBtn = document.getElementById('cancel-edit-btn');
       cancelEditBtn.addEventListener('click', () => toggleModal(false, elements.editTaskModal));
-    },
+    };
 
   // Cancel adding new task event listener
   const cancelAddTaskBtn = document.getElementById('cancel-add-task-btn');
