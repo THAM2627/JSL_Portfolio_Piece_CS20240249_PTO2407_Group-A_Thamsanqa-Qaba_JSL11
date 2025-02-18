@@ -243,6 +243,12 @@ function toggleModal(show, modal = elements.modalWindow) {
 
 function addTask(event) {
   event.preventDefault();
+  //validate user input
+  const title = elements.titleInput.value.trim();
+  if (!title) {
+    console.error('Title is required.');
+    return;
+  }
 
   //Assign user input to the task object
   const task = {
@@ -277,7 +283,10 @@ function toggleSidebar(show) {
 }
 
 function toggleTheme() {
-
+  const currentTheme = localStorage.getItem('theme');
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  localStorage.setItem('theme', newTheme);
+  document.body.classList.toggle('dark-mode', newTheme === 'dark');
 }
 
 
