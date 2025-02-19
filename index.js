@@ -71,6 +71,9 @@ const elements = {
 }
 
 let activeBoard = ""
+function refreshTasksUI() {
+  filterAndDisplayTasksByBoard(activeBoard);
+}
 
 // Extracts unique board names from tasks
 // TASK: FIX BUGS
@@ -138,37 +141,30 @@ function filterAndDisplayTasksByBoard(boardName) {
     const tasksContainer = document.createElement("div");
     column.appendChild(tasksContainer);
 
-    // Listen for a click event on each task and open a modal
+    filteredTasks.forEach(task => {
+      if (task.status === status) {
+        const taskElement = document.createElement("div");
+        taskElement.classList.add("task-div");
+        taskElement.textContent = task.title;
+        taskElement.setAttribute('data-task-id', task.id);
+        // Listen for a click event on each task and open a modal
+        taskElement.addEventListener('click', () => {
+          openEditTaskModal(task);
+        });
+        tasksContainer.appendChild(taskElement);
+      }
+    });
   });
-  filteredTasks.forEach(task => {
-    if (task.status === status) {
-      const taskElement = document.createElement("div");
-      taskElement.classList.add("task-div");
-      taskElement.textContent = task.title;
-      taskElement.setAttribute('data-task-id', task.id);
-      // Listen for a click event on each task and open a modal
-      taskElement.addEventListener('click', () => {
-        openEditTaskModal(task);
-      });
-    }
-    tasksContainer.appendChild(taskElement);
-  });
+
 }
 
 
 filterAndDisplayTasksByBoard(activeBoard);
 
-function refreshTasksUI() {
-  filterAndDisplayTasksByBoard(activeBoard);
-}
-
 // Styles the active board by adding an active class
 // TASK: Fix Bugs
 function styleActiveBoard(boardName) {
   document.querySelectorAll('.board-btn').forEach(btn => {
-    function refreshTasksUI() {
-      filterAndDisplayTasksByBoard(activeBoard);
-    };
 
     if (btn.textContent.toLowerCase() === boardName.toLowerCase()) {
       btn.classList.add('active')
@@ -201,6 +197,8 @@ function addTaskToUI(task) {
   taskElement.setAttribute('data-task-id', task.id);
 
   tasksContainer.appendChild();
+
+  return;
 }
 
 function setupEventListeners() {
