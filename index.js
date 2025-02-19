@@ -140,21 +140,21 @@ function filterAndDisplayTasksByBoard(boardName) {
 
     // Listen for a click event on each task and open a modal
   });
-  filteredTasks.forEach
-  if (task => task.status === status) {
-    const taskElement = document.createElement("div");
-    taskElement.classList.add("task-div");
-    taskElement.textContent = task.title;
-    taskElement.setAttribute('data-task-id', task.id);
-    ;
-    // Listen for a click event on each task and open a modal
-    taskElement.addEventListener('click', () => {
-      openEditTaskModal(task);
-    });
-  }
-
-  tasksContainer.appendChild(taskElement);
+  filteredTasks.forEach(task => {
+    if (task => task.status === status) {
+      const taskElement = document.createElement("div");
+      taskElement.classList.add("task-div");
+      taskElement.textContent = task.title;
+      taskElement.setAttribute('data-task-id', task.id);
+      // Listen for a click event on each task and open a modal
+      taskElement.addEventListener('click', () => {
+        openEditTaskModal(task);
+      });
+    }
+    tasksContainer.appendChild(taskElement);
+  });
 }
+
 
 filterAndDisplayTasksByBoard(activeBoard);
 
