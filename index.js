@@ -256,12 +256,6 @@ function setupEventListeners() {
   // Theme switch event listener
   elements.themeSwitch.addEventListener('change', toggleTheme);
 
-  // Show Add New Task Modal event listener
-  elements.createNewTaskBtn.addEventListener('click', () => {
-    toggleModal(true);
-    elements.filterDiv.style.display = 'block'; // Also show the filter overlay
-  });
-
   // Add new task form submission event listener
   elements.modalWindow.addEventListener('submit', (event) => {
     addTask(event)
