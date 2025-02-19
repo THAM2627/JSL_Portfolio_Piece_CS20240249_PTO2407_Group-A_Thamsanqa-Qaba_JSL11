@@ -207,8 +207,6 @@ function setupEventListeners() {
   cancelEditBtn.addEventListener('click', () => toggleModal(false, elements.editTaskModal));
   const taskElement = document.createElement('div');
   taskElement.className = 'task-div';
-  taskElement.textContent = task.title; // Modify as needed
-  taskElement.setAttribute('data-task-id', task.id);
 
   // Cancel adding new task event listener
   const cancelAddTaskBtn = document.getElementById('cancel-add-task-btn');
