@@ -299,6 +299,7 @@ function addTask(event) {
     event.target.reset();
     refreshTasksUI();
   }
+  return;
 }
 
 
