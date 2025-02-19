@@ -344,9 +344,6 @@ function saveTaskChanges(taskId) {
   refreshTasksUI();
 }
 
-
-/*************************************************************************************************************************************************/
-
 document.addEventListener('DOMContentLoaded', function () {
   init(); // init is called after the DOM is fully loaded
 });
