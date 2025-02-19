@@ -141,7 +141,7 @@ function filterAndDisplayTasksByBoard(boardName) {
     // Listen for a click event on each task and open a modal
   });
   filteredTasks.forEach(task => {
-    if (task => task.status === status) {
+    if (task.status === status) {
       const taskElement = document.createElement("div");
       taskElement.classList.add("task-div");
       taskElement.textContent = task.title;
