@@ -66,6 +66,14 @@ const elements = {
   tasksContainer: document.getElementById('tasks-container'),
   columnHeadDiv: document.querySelectorAll('.column-head-div'),
   columnHeader: document.querySelectorAll('.columnHeader'),
+  taskList: document.getElementById('.task-list'),
+  taskTemplate: document.getElementById('task-template'),
+  taskInput: document.getElementById('task-input'),
+  taskDescriptionInput: document.getElementById('task-description-input'),
+  taskPrioritySelect: document.getElementById('task-priority-select'),
+  taskDueDateInput: document.getElementById('task-due-date-input'),
+  taskStatusSelect: document.getElementById('task-status-select'),
+
 
 
 }
