@@ -380,15 +380,8 @@ function saveTaskChanges(taskId) {
   refreshTasksUI();
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  init(); // init is called after the DOM is fully loaded
-});
-
 function init() {
   setupEventListeners();
-  document.addEventListener('DOMContentLoaded', function () {
-    ;
-  });
   elements.createNewTaskBtn = document.getElementById('create-new-task-btn');
   elements.filterDiv = document.getElementById('filterDiv');
   elements.modalWindow = document.getElementById('modal-window');
@@ -398,5 +391,9 @@ function init() {
 
   console.log(elements.cancelEditBtn);
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  init(); // init is called after the DOM is fully loaded
+});
 
 styleActiveBoard('My Board');
