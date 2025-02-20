@@ -382,13 +382,16 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function init() {
-  setupEventListeners();
-  const showSidebar = localStorage.getItem('showSideBar') === 'true';
-  toggleSidebar(showSidebar);
-  const isLightTheme = localStorage.getItem('light-theme') === 'enabled';
-  document.body.classList.toggle('light-theme', isLightTheme);
-  fetchAndDisplayBoardsAndTasks(); // Initial display of boards and tasks
+  elements.createNewTaskBtn = document.getElementById('create-new-task-btn');
+  elements.filterDiv = document.getElementById('filterDiv');
+  elements.modalWindow = document.getElementById('modal-window');
+  elements.editTaskModal = document.getElementById('edit-task-modal');
+  elements.columnDivs = document.querySelectorAll('.column-div');
+  elements.cancelEditBtn = document.getElementById('cancel-edit-btn');
 
-  styleActiveBoard('My Board');
-  ;
+  console.log(elements.cancelEditBtn);
+
+  setupEventListeners();
 }
+
+styleActiveBoard('My Board');
