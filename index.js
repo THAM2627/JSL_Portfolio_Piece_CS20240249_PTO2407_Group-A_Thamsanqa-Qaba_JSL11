@@ -385,8 +385,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function init() {
+  setupEventListeners();
   document.addEventListener('DOMContentLoaded', function () {
-    setupEventListeners();
+    ;
   });
   elements.createNewTaskBtn = document.getElementById('create-new-task-btn');
   elements.filterDiv = document.getElementById('filterDiv');
