@@ -228,8 +228,8 @@ function setupEventListeners() {
   });
 
   // Show sidebar event listener
-  elements.hideSideBarBtn.addEventListener('click', () => toggleSidebar(false));
-  elements.showSideBarBtn.addEventListener('click', () => toggleSidebar(true));
+  elements.hideSideBarBtn.addEventListener('click', () => toggleSidebar());
+  elements.showSideBarBtn.addEventListener('click', () => toggleSidebar());
 
   // Theme switch event listener
   elements.themeSwitch.addEventListener('change', toggleTheme);
@@ -290,7 +290,7 @@ function addTask(event) {
   //Assign user input to the task object
   const task = {
     //title, description, status, board, 
-    title: elements.titleInput.value,
+    title: elements.taskTitleInput.value,
     board: activeBoard
 
   };
@@ -387,6 +387,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function init() {
+  document.addEventListener('DOMContentLoaded', function () {
+    setupEventListeners();
+  });
   elements.createNewTaskBtn = document.getElementById('create-new-task-btn');
   elements.filterDiv = document.getElementById('filterDiv');
   elements.modalWindow = document.getElementById('modal-window');
@@ -395,8 +398,6 @@ function init() {
   elements.cancelEditBtn = document.getElementById('cancel-edit-btn');
 
   console.log(elements.cancelEditBtn);
-
-  setupEventListeners();
 }
 
 styleActiveBoard('My Board');
