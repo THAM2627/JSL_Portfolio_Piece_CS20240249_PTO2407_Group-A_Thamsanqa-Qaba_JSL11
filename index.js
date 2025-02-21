@@ -321,9 +321,9 @@ function toggleSidebar(show) {
 }
 
 function toggleTheme() {
-  const currentTheme = localStorage.getItem('theme');
+  const currentTheme = localStorage.getItem('light-theme') === 'enabled' ? 'light' : 'dark';
   const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-  localStorage.setItem('theme', newTheme);
+  localStorage.setItem('light-theme', newTheme === 'light' ? 'enabled' : 'disabled');
   document.body.classList.toggle('dark-mode', newTheme === 'dark');
 }
 
