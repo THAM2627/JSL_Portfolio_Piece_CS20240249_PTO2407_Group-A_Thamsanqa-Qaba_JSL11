@@ -373,12 +373,8 @@ function saveTaskChanges(taskId) {
   // Update task using a hlper functoin
   patchTask(taskId, updatedTask);
 
-  // PATCHTASK is the helper function, takes two values, 1.TaskID 2.updatedTask
-
-
   // Close the modal and refresh the UI to reflect the changes
-  toggleModal()
-  //call two functions: togglemodal, refreshTasksUI
+  toggleModal(false, elements.editTaskModal);
   refreshTasksUI();
 }
 
