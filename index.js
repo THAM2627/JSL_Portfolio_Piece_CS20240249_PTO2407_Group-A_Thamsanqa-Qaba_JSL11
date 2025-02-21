@@ -311,15 +311,15 @@ function addTask(event) {
 }
 
 
-function toggleSidebar(show) {
+function toggleSidebar() {
   const sidebar = document.querySelector('.side-bar');
   const showSideBar = localStorage.getItem('showSideBar');
-  if (showSideBar === 'show' || show) {
-    sidebar.classList.add('show-sidebar');
-    localStorage.setItem('showSideBar', 'show');
-  } else {
+  if (showSideBar === 'show') {
     sidebar.classList.remove('show-sidebar');
     localStorage.setItem('showSideBar', 'hide');
+  } else {
+    sidebar.classList.add('show-sidebar');
+    localStorage.setItem('showSideBar', 'show');
   }
 }
 
