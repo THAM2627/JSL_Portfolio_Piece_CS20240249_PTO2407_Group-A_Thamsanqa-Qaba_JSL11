@@ -1444,3 +1444,17 @@ input:checked+#label-checkbox-theme:after {
     width: 30%;
   }
 }
+
+
+body.dark-mode {
+  background-color: #333;
+  color: #f2f2f2;
+}
+
+.dark-mode .header {
+  background-color: #444;
+}
+
+.dark-mode .footer {
+  background-color: #444;
+}
