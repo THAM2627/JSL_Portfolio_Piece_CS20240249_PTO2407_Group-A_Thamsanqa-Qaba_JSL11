@@ -334,16 +334,17 @@ function toggleTheme() {
 
 function openEditTaskModal(task) {
   // Set task details in modal inputs
-  document.getElementById('edit-task-title-input').value = task.title;
-  document.getElementById('edit-task-desc-input').value = task.description;
-  document.getElementById('edit-select-status').value = task.status;
-  //title, description and status pulled from the GREAT DOM
+  const editTaskTitleInput = document.getElementById('edit-task-title-input');
+  const editTaskDescInput = document.getElementById('edit-task-desc-input');
+  const editSelectStatus = document.getElementById('edit-select-status');
+
+  editTaskTitleInput.value = task.title;
+  editTaskDescInput.value = task.description;
+  editSelectStatus.value = task.status;
 
   // Get button elements from the task modal
-  elements.saveTaskChangesBtn = document.getElementById('save-task-changes-btn');
-  elements.deleteTaskBtn = document.getElementById('delete-task-btn');
-  // two btns: savechanges, deletetask, pulled from DOM; const, getElementbyID
-
+  const saveTaskChangesBtn = document.getElementById('save-task-changes-btn');
+  const deleteTaskBtn = document.getElementById('delete-task-btn');
 
   // Call saveTaskChanges upon click of Save Changes button
   saveTaskChangesBtn.addEventListener('click', () => {
@@ -351,7 +352,6 @@ function openEditTaskModal(task) {
   });
 
   // Delete task using a helper function and close the task modal
-  //deletetaskbtn click, deleteTASK
   deleteTaskBtn.addEventListener('click', () => {
     deleteTask(task.id);
     toggleModal(false, elements.editTaskModal);
