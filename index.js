@@ -126,13 +126,16 @@ function displayBoards(boards) {
 // Filters tasks corresponding to the board name and displays them on the DOM.
 // TASK: Fix Bugs
 function filterAndDisplayTasksByBoard(boardName) {
-  const elements = {
-    columnDivs: document.querySelectorAll('.column-div'),
-  }
   const tasks = getTasks(); // Fetch tasks from a simulated local storage function
   const filteredTasks = tasks.filter(task => task.board === boardName);
 
-  // Ensure the column titles are set outside of this function or correctly initialized before this function runs
+  const elements = {
+    columnDivs: document.querySelectorAll('.column-div'),
+    columnHeadDivs: document.querySelectorAll('.column-head-div'),
+    dot: document.querySelectorAll('.dot'),
+    columnHeader: document.querySelectorAll('.columnHeader'),
+    tasksContainers: document.querySelectorAll('.tasks-container')
+  }
 
   elements.columnDivs.forEach(column => {
     const status = column.getAttribute("data-status");
@@ -143,6 +146,7 @@ function filterAndDisplayTasksByBoard(boardName) {
                         </div>`;
 
     const tasksContainer = document.createElement("div");
+    tasksContainer.className = 'tasks-container';
     column.appendChild(tasksContainer);
 
     filteredTasks.forEach(task => {
@@ -158,6 +162,30 @@ function filterAndDisplayTasksByBoard(boardName) {
         tasksContainer.appendChild(taskElement);
       }
     });
+  });
+
+  // Reset the classList of the column header divs
+  elements.columnHeadDivs.forEach(div => {
+    div.classList.remove('column-head-div');
+    div.classList.add('column-head-div');
+  });
+
+  // Reset the classList of the dot elements
+  elements.dot.forEach(dot => {
+    dot.classList.remove('dot');
+    dot.classList.add('dot');
+  });
+
+  // Reset the classList of the column header elements
+  elements.columnHeader.forEach(header => {
+    header.classList.remove('columnHeader');
+    header.classList.add('columnHeader');
+  });
+
+  // Reset the classList of the tasks container elements
+  elements.tasksContainers.forEach(container => {
+    container.classList.remove('tasks-container');
+    container.classList.add('tasks-container');
   });
 
 }
