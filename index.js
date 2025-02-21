@@ -281,20 +281,25 @@ function toggleModal(show, modal = elements.modalWindow) {
 
 function addTask(event) {
   event.preventDefault();
-  //validate user input
-  const title = elements.titleInput.value.trim();
+
+  // Validate user input
+  const title = elements.taskTitleInput.value.trim();
+  const description = elements.taskDescInput.value.trim();
+  const status = elements.selectStatus.value;
+
   if (!title) {
     console.error('Title is required.');
     return;
   }
 
-  //Assign user input to the task object
+  // Assign user input to the task object
   const task = {
-    //title, description, status, board, 
-    title: elements.taskTitleInput.value,
+    title,
+    description,
+    status,
     board: activeBoard
-
   };
+
   const newTask = createNewTask(task);
   if (newTask) {
     addTaskToUI(newTask);
@@ -303,7 +308,6 @@ function addTask(event) {
     event.target.reset();
     refreshTasksUI();
   }
-  return;
 }
 
 
