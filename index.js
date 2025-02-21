@@ -78,7 +78,11 @@ const elements = {
 
 let activeBoard = ""
 function refreshTasksUI() {
-  filterAndDisplayTasksByBoard(activeBoard);
+  if (activeBoard) {
+    filterAndDisplayTasksByBoard(activeBoard);
+  } else {
+    console.warn('No active board set.');
+  }
 }
 
 // Extracts unique board names from tasks
