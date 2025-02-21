@@ -170,12 +170,10 @@ filterAndDisplayTasksByBoard(activeBoard);
 // TASK: Fix Bugs
 function styleActiveBoard(boardName) {
   document.querySelectorAll('.board-btn').forEach(btn => {
-
     if (btn.textContent.toLowerCase() === boardName.toLowerCase()) {
-      btn.classList.add('active')
-    }
-    else {
-      btn.remove('active');
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
     }
   });
 }
