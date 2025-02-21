@@ -362,8 +362,8 @@ function openEditTaskModal(task) {
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
-  const title = document.getElementById('edit-task-title-input').value;
-  const description = document.getElementById('edit-task-desc-input').value;
+  const title = document.getElementById('edit-task-title-input').value.trim();
+  const description = document.getElementById('edit-task-desc-input').value.trim();
   const status = document.getElementById('edit-select-status').value;
 
   // Create an object with the updated task details
@@ -373,7 +373,7 @@ function saveTaskChanges(taskId) {
     status,
   };
 
-  // Update task using a hlper functoin
+  // Update task using a helper function
   patchTask(taskId, updatedTask);
 
   // Close the modal and refresh the UI to reflect the changes
