@@ -394,7 +394,13 @@ function init() {
   elements.columnDivs = document.querySelectorAll('.column-div');
   elements.cancelEditBtn = document.getElementById('cancel-edit-btn');
 
-  console.log(elements.cancelEditBtn);
-}
+  const boards = JSON.parse(localStorage.getItem('boards') || '[]');
 
-styleActiveBoard('My Board');
+  if (boards.length > 0) {
+    elements.headerBoardName.textContent = boards[0];
+    activeBoard = boards[0];
+  }
+
+  displayBoards(boards);
+  refreshTasksUI();
+}
