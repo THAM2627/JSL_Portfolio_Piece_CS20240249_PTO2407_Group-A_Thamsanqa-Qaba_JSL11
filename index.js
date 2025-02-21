@@ -34,6 +34,8 @@ const elements = {
   editTaskModal: document.getElementById('edit-task-modal'),
   modalWindow: document.getElementById('modal-window'),
   filterDiv: document.getElementById('filter-div'),
+  hideSideBarBtn: document.getElementById('hide-sidebar-btn'),
+  showSideBarBtn: document.getElementById('show-sidebar-btn'),
   themeSwitch: document.getElementById('switch'),
   editBoardBtn: document.getElementById('edit-board-btn'),
   createNewTaskBtn: document.getElementById('create-new-task-btn'),
@@ -63,17 +65,15 @@ const elements = {
   taskBoard: document.getElementById('task-board'),
   tasksContainer: document.getElementById('tasks-container'),
   columnHeadDiv: document.querySelectorAll('.column-head-div'),
-  columnHeader: document.getElementById('column-header'),
-  hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
-  showSideBarBtn: document.getElementById('show-side-bar-btn'),
-  taskList: document.getElementById('task-list'),
+  columnHeader: document.querySelectorAll('.columnHeader'),
+  taskList: document.getElementById('.task-list'),
   taskTemplate: document.getElementById('task-template'),
   taskInput: document.getElementById('task-input'),
   taskDescriptionInput: document.getElementById('task-description-input'),
   taskPrioritySelect: document.getElementById('task-priority-select'),
   taskDueDateInput: document.getElementById('task-due-date-input'),
-  taskStatusSelect: document.getElementById('task-status-select')
-};
+  taskStatusSelect: document.getElementById('task-status-select'),
+}
 
 let activeBoard = ""
 function refreshTasksUI() {
@@ -228,8 +228,8 @@ function setupEventListeners() {
   });
 
   // Show sidebar event listener
-  elements.hideSideBarBtn.addEventListener('click', () => toggleSidebar());
-  elements.showSideBarBtn.addEventListener('click', () => toggleSidebar());
+  elements.hideSideBarBtn.addEventListener('click', () => toggleSidebar(false));
+  elements.showSideBarBtn.addEventListener('click', () => toggleSidebar(true));
 
   // Theme switch event listener
   elements.themeSwitch.addEventListener('change', toggleTheme);
@@ -387,7 +387,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function init() {
-  setupEventListeners();
   elements.createNewTaskBtn = document.getElementById('create-new-task-btn');
   elements.filterDiv = document.getElementById('filterDiv');
   elements.modalWindow = document.getElementById('modal-window');
@@ -396,6 +395,8 @@ function init() {
   elements.cancelEditBtn = document.getElementById('cancel-edit-btn');
 
   console.log(elements.cancelEditBtn);
+
+  setupEventListeners();
 }
 
 styleActiveBoard('My Board');
