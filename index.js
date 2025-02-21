@@ -11,12 +11,12 @@ import { initialData } from "./initialData.js";
 function initializeData() {
   if (!localStorage.getItem('tasks')) {
     localStorage.setItem('tasks', JSON.stringify(initialData));
-    localStorage.setItem('light-theme', 'enabled');
   }
-  if (!localStorage.getItem('activeBoard') && initialData && initialData.length > 0 && initialData[0].board) {
-    localStorage.setItem('activeBoard', JSON.stringify(initialData[0].board));
-  } else if (!localStorage.getItem('activeBoard')) {
-    localStorage.setItem('activeBoard', JSON.stringify({ /* default board data */ }));
+  if (!localStorage.getItem('activeBoard')) {
+    localStorage.setItem('activeBoard', JSON.stringify(initialData[0]?.board || 'Default Board'));
+  }
+  if (!localStorage.getItem('light-theme')) {
+    localStorage.setItem('light-theme', 'enabled');
   }
   console.log('Data initialization complete.');
 }
@@ -41,10 +41,10 @@ const elements = {
   cancelEditBtn: document.getElementById('cancel-edit-btn'),
   saveTaskChangesBtn: document.getElementById('save-task-changes-btn'),
   editTaskBtn: document.getElementById('edit-task-btn'),
+  editTaskForm: document.getElementById('edit-task-form'),
   editTaskTitleInput: document.getElementById('edit-task-title-input'),
   editTaskDescInput: document.getElementById('edit-task-desc-input'),
   editSelectStatus: document.getElementById('edit-select-status'),
-  editTaskForm: document.getElementById('edit-task-form'),
   editTaskHeader: document.getElementById('edit-task-header'),
   editBoardDiv: document.getElementById('editBoardDiv'),
   deleteBoardBtn: document.getElementById('deleteBoardBtn'),
@@ -72,7 +72,8 @@ const elements = {
   taskDescriptionInput: document.getElementById('task-description-input'),
   taskPrioritySelect: document.getElementById('task-priority-select'),
   taskDueDateInput: document.getElementById('task-due-date-input'),
-  taskStatusSelect: document.getElementById('task-status-select')
+  taskStatusSelect: document.getElementById('task-status-select'),
+  sideBarDiv: document.getElementById('side-bar-div')
 };
 
 let activeBoard = ""
@@ -84,11 +85,12 @@ function refreshTasksUI() {
 // TASK: FIX BUGS
 function fetchAndDisplayBoardsAndTasks() {
   const tasks = getTasks();
-  const boards = [...new Set(tasks.map(task => task.board).filter(Boolean))];
+  const boards = Array.from(new Set(tasks.map(task => task.board).filter(Boolean)));
   displayBoards(boards);
+
   if (boards.length > 0) {
-    const localStorageBoard = JSON.parse(localStorage.getItem("activeBoard"));
-    activeBoard = localStorageBoard || boards[0];
+    const storedBoard = JSON.parse(localStorage.getItem("activeBoard"));
+    activeBoard = storedBoard || boards[0];
     elements.headerBoardName.textContent = activeBoard;
     styleActiveBoard(activeBoard);
     refreshTasksUI();
