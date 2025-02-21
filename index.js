@@ -105,19 +105,12 @@ function displayBoards(boards) {
     boardElement.textContent = board;
     boardElement.classList.add("board-btn");
     boardElement.addEventListener('click', () => {
-      boardElement.classList.addEventListener('click', () => {
-        elements.headerBoardName.textContent = board;
-        filterAndDisplayTasksByBoard(board);
-        activeBoard = board //assigns active board
-        localStorage.setItem("activeBoard", JSON.stringify(activeBoard))
-        styleActiveBoard(activeBoard)
-      });
-      boardsContainer.appendChild(boardElement);
       elements.headerBoardName.textContent = board;
       filterAndDisplayTasksByBoard(board);
       activeBoard = board //assigns active board
       localStorage.setItem("activeBoard", JSON.stringify(activeBoard))
       styleActiveBoard(activeBoard)
+
     });
     boardsContainer.appendChild(boardElement);
   });
