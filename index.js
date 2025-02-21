@@ -98,6 +98,8 @@ function fetchAndDisplayBoardsAndTasks() {
     elements.headerBoardName.textContent = activeBoard;
     styleActiveBoard(activeBoard);
     refreshTasksUI();
+  } else {
+    console.log('No boards found in tasks.');
   }
 }
 
