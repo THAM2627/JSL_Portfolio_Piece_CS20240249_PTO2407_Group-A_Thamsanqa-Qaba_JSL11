@@ -337,8 +337,8 @@ function openEditTaskModal(task) {
   //title, description and status pulled from the GREAT DOM
 
   // Get button elements from the task modal
-  const saveTaskChangesBtn = document.getElementById('save-task-changes-btn');
-  const deleteTaskBtn = document.getElementById('delete-task-btn');
+  elements.saveTaskChangesBtn = document.getElementById('save-task-changes-btn');
+  elements.deleteTaskBtn = document.getElementById('delete-task-btn');
   // two btns: savechanges, deletetask, pulled from DOM; const, getElementbyID
 
 
