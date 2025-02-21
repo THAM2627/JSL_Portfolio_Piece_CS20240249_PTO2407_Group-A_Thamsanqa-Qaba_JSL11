@@ -196,10 +196,13 @@ filterAndDisplayTasksByBoard(activeBoard);
 // Styles the active board by adding an active class
 // TASK: Fix Bugs
 function styleActiveBoard(boardName) {
+  const activeBtn = document.querySelector(`.board-btn[data-board="${boardName}"]`);
+  if (activeBtn) {
+    activeBtn.classList.add('active');
+  }
+
   document.querySelectorAll('.board-btn').forEach(btn => {
-    if (btn.textContent.toLowerCase() === boardName.toLowerCase()) {
-      btn.classList.add('active');
-    } else {
+    if (btn !== activeBtn) {
       btn.classList.remove('active');
     }
   });
