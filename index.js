@@ -225,8 +225,7 @@ function addTaskToUI(task) {
   }
 
   const taskElement = document.createElement('div');
-  taskClassList.add('task-div');
-  taskElement.className = 'task-div';
+  taskElement.classList.add('task-div');
   taskElement.textContent = task.title; // Modify as needed
   taskElement.setAttribute('data-task-id', task.id);
 
